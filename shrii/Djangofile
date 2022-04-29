@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                sh 'sudo apt update'
+                sh 'sudo apt install python -y'
+                sh 'sudo apt install python3-pip -y'
+                sh 'pip install django'
+                sh 'python manage.py runserver &'
+                
+            }
+        }
+    }
+}
